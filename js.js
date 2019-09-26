@@ -9,18 +9,14 @@ class Options {
         this.textAlign = textAlign;
     }
 
-    newDiv(height, width, bg, fontSize, textAlign) {
+    newDiv() {
         let div = document.createElement('div');
 
-        div.textContent = 'Какой-то текст....';
-        div.style.height = height + 'px';
-        div.style.width = width + 'px';
-        div.style.backgroundColor = bg;
-        div.style.fontSize = fontSize + 'px';
-        div.style.textAlign = textAlign;
         document.body.appendChild(div);
+        let param = `height:${this.height}px; width:${this.width}px; background-color:${this.bg}; font-size:${this.fontSize}px; text-align:${this.textAlign}`;
+        div.style.cssText = param;
     }
 }
 
-let newdiv = new Options();
-newdiv.newDiv(100, 400, 'red', 12, 'center');
+let newdiv = new Options(100, 400, 'red', 12, 'center');
+newdiv.newDiv();
